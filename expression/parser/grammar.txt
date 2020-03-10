@@ -1,0 +1,30 @@
+<<, >> -> 0 priority
++,- -> 1 priority
+/,* -> 2 priority
+//, ** -> 3 priority
+(), number, x, y, z, unary_minus -> 4 priority
+
+S -> E S'
+S' -> << E S'
+S' -> >> E S'
+S' -> empty
+
+E -> T E'
+E' -> + T E'
+E' -> - T E'
+E' -> Empty
+
+T -> P T'
+T' -> * P T'
+T' -> / P T'
+T' -> Empty
+
+P -> F P'
+P' -> ** F P'
+P' -> // F P'
+P' -> Empty
+
+F -> Number
+F -> Variable
+F -> ( S )
+F -> - F
